@@ -1,0 +1,707 @@
+/* ==========================================================================
+   DESIGN TOKENS  — values sampled from the Figma file
+   ========================================================================== */
+:root {
+  --maroon: #6d0c15;
+  --maroon-deep: #5c0a12;
+  --maroon-soft: rgba(109, 12, 21, 0.46);
+  --ink: #000000;
+  --ink-body: #101010;
+  --paper: #f2efe9;
+  --white: #ffffff;
+
+  --font-ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-meta: "Amiko", system-ui, sans-serif;
+
+  --container: 1120px;
+  --radius-pill: 999px;
+  --radius-card: 12px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.14);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.22);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   RESET / BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(100% - 3rem, var(--container));
+  margin-inline: auto;
+}
+
+/* Shared section heading (48px bold in the design) */
+.section-title {
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+.section-title--light {
+  color: var(--white);
+}
+
+.band-maroon {
+  background: var(--maroon);
+  color: var(--white);
+  background-image: linear-gradient(180deg, var(--maroon-deep), var(--maroon));
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  background: var(--maroon);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--shadow-sm);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 0, 0, 0.05)
+  );
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.28);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.15rem;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.btn-resume:hover {
+  background: rgba(255, 255, 255, 0.42);
+  transform: translateY(-1px);
+}
+
+.btn-resume__icon {
+  width: 19px;
+  height: 19px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.socials__label {
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.socials__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
+  color: var(--white);
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+  opacity: 0.92;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.social-link svg {
+  width: 27px;
+  height: 27px;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  background-color: var(--paper);
+  /* layered "paper" texture — lightweight, no image download needed */
+  background-image: radial-gradient(
+      circle at 18% 20%,
+      rgba(0, 0, 0, 0.03) 0,
+      transparent 55%
+    ),
+    radial-gradient(circle at 82% 0%, rgba(0, 0, 0, 0.035) 0, transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  min-height: 58vh;
+}
+
+.hero__title {
+  margin: 0 0 1.6rem;
+  font-weight: 400;
+  line-height: 1.22;
+}
+
+.hero__greeting,
+.hero__name {
+  display: block;
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.hero__tagline {
+  margin: 0;
+  max-width: 40ch;
+  font-size: clamp(1.15rem, 2.4vw, 2rem);
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.hero__art {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__art img {
+  width: min(100%, 520px);
+  height: auto;
+  transform: rotate(4.33deg);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: rotate(4.33deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3.6deg) translateY(-12px);
+  }
+}
+
+/* ==========================================================================
+   EXPERTISE
+   ========================================================================== */
+.expertise {
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 1.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  cursor: default;
+}
+
+.tag:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.tag--accent {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  box-shadow: none;
+}
+
+.tag--accent:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   PROJECTS
+   ========================================================================== */
+.projects {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  aspect-ratio: 295 / 237;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: #d9d4cc;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* "See more on Behance" outlined card */
+.project-card--more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: 4px solid var(--maroon);
+  color: var(--maroon);
+  font-size: clamp(1.3rem, 2.4vw, 2.25rem);
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: none;
+}
+
+.project-card--more:hover {
+  background: rgba(109, 12, 21, 0.05);
+  box-shadow: none;
+}
+
+.project-card--more .arrow {
+  flex: none;
+  width: 43px;
+  height: 43px;
+  border: 1.5px solid var(--maroon);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s var(--ease);
+}
+
+.project-card--more:hover .arrow {
+  transform: translateX(4px);
+}
+
+.project-card--more .arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   TIMELINE (Experience + Education)
+   ========================================================================== */
+.timeline-section {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 0;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 3.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* connecting vertical line */
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 30px;
+  bottom: -4px;
+  width: 3px;
+  background: var(--maroon);
+}
+
+.timeline__item:last-child::before {
+  display: none;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid var(--maroon);
+  background: transparent;
+}
+
+.timeline__dot--filled {
+  background: var(--maroon-soft);
+}
+
+.timeline__role {
+  font-size: clamp(1.3rem, 2.6vw, 1.875rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.timeline__role .at {
+  color: var(--maroon);
+}
+
+.timeline__desc {
+  margin: 0.6rem 0 0;
+  max-width: 60ch;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+
+/* Education variant uses the Amiko meta font */
+.edu__program {
+  font-family: var(--font-meta);
+  font-size: 1.2rem;
+  color: var(--ink-body);
+  margin: 0 0 0.4rem;
+}
+
+.edu__meta {
+  font-family: var(--font-meta);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink-body);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FASHION (horizontal scroll gallery)
+   ========================================================================== */
+.fashion {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.fashion__heading {
+  font-size: clamp(1.6rem, 3.6vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.fashion__sub {
+  font-size: clamp(1.1rem, 2vw, 1.875rem);
+  font-weight: 500;
+  margin: 0 0 1.75rem;
+  opacity: 0.95;
+}
+
+/* Auto-moving carousel: the scroller clips, the track glides via JS. */
+.outfit-scroller {
+  overflow: hidden;
+  padding: 0.25rem 0 1rem;
+  /* Soft fade on both edges so cards slide in/out gracefully. */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+.outfit-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding-inline: 1.5rem;
+  will-change: transform;
+}
+
+/* Fallback for reduced-motion: behave like the old manual scroller. */
+.outfit-scroller--manual {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.outfit-scroller--manual .outfit-track {
+  width: auto;
+  will-change: auto;
+}
+
+.outfit-scroller::-webkit-scrollbar {
+  height: 8px;
+}
+
+.outfit-scroller::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+}
+
+.outfit {
+  flex: 0 0 auto;
+  width: clamp(220px, 26vw, 333px);
+  height: clamp(390px, 46vw, 592px);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  margin: 0;
+}
+
+.outfit:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.outfit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   CONNECT / FOOTER
+   ========================================================================== */
+.connect {
+  background: var(--paper);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.connect__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.connect__email {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--ink);
+  transition: color 0.2s var(--ease);
+}
+
+.connect__email:hover {
+  color: var(--maroon);
+}
+
+.connect__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.connect__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.875rem);
+  font-weight: 700;
+  color: var(--ink);
+  transition: color 0.2s var(--ease);
+}
+
+.connect__link:hover {
+  color: var(--maroon);
+}
+
+.connect__link .arrow {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--maroon);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--maroon);
+  transition: transform 0.25s var(--ease);
+}
+
+.connect__link:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.connect__link .arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.colophon {
+  margin: 2.5rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(16, 16, 16, 0.55);
+}
+
+/* ==========================================================================
+   ENTRANCE ANIMATIONS
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+    min-height: auto;
+  }
+  .hero__art {
+    order: -1;
+  }
+  .hero__tagline {
+    margin-inline: auto;
+  }
+  .header__inner {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .socials {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .socials__list {
+    gap: 1.5rem;
+  }
+  .btn-resume {
+    width: 100%;
+    justify-content: center;
+  }
+  .connect__inner {
+    flex-direction: column;
+  }
+}

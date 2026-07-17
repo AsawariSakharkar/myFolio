@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Asawari Sakharkar — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Asawari Sakharkar — Information Designer, UX Researcher, problem solver and fashion lover."
+    />
+    <link rel="icon" type="image/jpeg" href="assets/favicononinini.jpeg" />
+
+    <!-- Fonts matched to the Figma file: Instrument Sans + Amiko -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header" id="site-header">
+      <div class="container header__inner">
+        <a class="btn-resume" id="resume-btn" href="#" download>
+          <svg class="btn-resume__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"
+            />
+          </svg>
+          <span id="resume-label">Resume</span>
+        </a>
+
+        <nav class="socials" aria-label="Social links">
+          <span class="socials__label" id="find-me-text">You can find me on</span>
+          <ul class="socials__list" id="socials-list"></ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== HERO ===================== -->
+      <section class="hero" id="hero">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <h1 class="hero__title">
+              <span class="hero__greeting" id="hero-greeting"></span>
+              <span class="hero__name" id="hero-name"></span>
+            </h1>
+            <p class="hero__tagline" id="hero-tagline"></p>
+          </div>
+          <figure class="hero__art">
+            <img id="hero-image" src="" alt="" width="476" height="332" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ===================== EXPERTISE ===================== -->
+      <section class="band-maroon expertise" id="expertise">
+        <div class="container">
+          <h2 class="section-title section-title--light" id="expertise-heading">
+            My Expertise
+          </h2>
+          <ul class="tags" id="tags-list"></ul>
+        </div>
+      </section>
+
+      <!-- ===================== PROJECTS ===================== -->
+      <section class="projects" id="projects">
+        <div class="container">
+          <h2 class="section-title" id="projects-heading">My Projects</h2>
+          <div class="project-grid" id="project-grid"></div>
+        </div>
+      </section>
+
+      <!-- ===================== EXPERIENCE ===================== -->
+      <section class="timeline-section" id="experience">
+        <div class="container">
+          <h2 class="section-title" id="experience-heading">My Experience</h2>
+          <ol class="timeline" id="experience-list"></ol>
+        </div>
+      </section>
+
+      <!-- ===================== EDUCATION ===================== -->
+      <section class="timeline-section" id="education">
+        <div class="container">
+          <h2 class="section-title" id="education-heading">My Education</h2>
+          <ol class="timeline timeline--edu" id="education-list"></ol>
+        </div>
+      </section>
+
+      <!-- ===================== FASHION ===================== -->
+      <section class="band-maroon fashion" id="fashion">
+        <div class="container">
+          <h2 class="fashion__heading" id="fashion-heading"></h2>
+          <p class="fashion__sub" id="fashion-sub"></p>
+        </div>
+        <div class="outfit-scroller" id="outfit-scroller" tabindex="0"
+             aria-label="Outfit photo gallery, scroll horizontally"></div>
+      </section>
+    </main>
+
+    <!-- ===================== CONNECT / FOOTER ===================== -->
+    <footer class="connect" id="connect">
+      <div class="container connect__inner">
+        <div class="connect__left">
+          <h2 class="section-title" id="connect-heading">Let's Connect</h2>
+          <a class="connect__email" id="connect-email" href="#"></a>
+        </div>
+        <ul class="connect__links" id="connect-links"></ul>
+      </div>
+      <div class="container">
+        <p class="colophon" id="footer-text"></p>
+      </div>
+    </footer>
+
+    <script src="assets/js/content.js"></script>
+    <script src="assets/js/icons.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
