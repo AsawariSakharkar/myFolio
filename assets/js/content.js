@@ -44,9 +44,9 @@ window.SITE_CONTENT = {
     imageAlt: "An open locket showing two photos of Asawari",
   },
 
-  // ---- My Expertise -------------------------------------------------------
+  // ---- My Skills -------------------------------------------------------
   expertise: {
-    heading: "My Expertise",
+    heading: "My Skills",
     // accent:true renders the outlined pill style ("And an outfit planner").
     tags: [
       { label: "Data Driven Design" },
