@@ -37,7 +37,7 @@ window.SITE_CONTENT = {
     greeting: "Hello~",
     name: "I am Asawari Sakharkar",
     tagline:
-      "An Information Designer, UX Researcher, A Problem Solver and a Fashion Lover",
+      "An Information Designer, UX Researcher, A Problem Solver and, A Fashion Lover",
     // Tip: in Figma, select the whole locket group ("Group 32") and export it
     // as ONE transparent PNG for the cleanest result, then point to it here.
     image: "assets/images/Group 32.png",
@@ -50,13 +50,14 @@ window.SITE_CONTENT = {
     // accent:true renders the outlined pill style ("And an outfit planner").
     tags: [
       { label: "Data Driven Design" },
+      { label: "Design Thinking" },
+      { label: "Design Strategy" },
       { label: "User Research" },
-      { label: "UX writing" },
+      { label: "UX Writing" },
       { label: "Psychology" },
       { label: "Accessibility" },
       { label: "UX Design" },
-      { label: "Creativity in Design" },
-      { label: "And an outfit planner", accent: true },
+      { label: "And an Outfit Planner", accent: true },
     ],
   },
 
@@ -65,7 +66,7 @@ window.SITE_CONTENT = {
     heading: "My Projects",
     // Each card: image + optional link. Add/remove freely.
     items: [
-      { image: "assets/images/projects/Rectangle 9.png", title: "AROHI — Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
+      { image: "assets/images/projects/Rectangle 9.png", title: "Arohi-Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
       { image: "assets/images/projects/Rectangle 10.png", title: "Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
       { image: "assets/images/projects/Rectangle 11.png", title: "Suchalak", url: "https://www.behance.net/gallery/245164655/Suchalak" },
       { image: "assets/images/projects/Rectangle 12.png", title: "Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
@@ -73,6 +74,33 @@ window.SITE_CONTENT = {
     ],
     // The final outlined "See more" card in the design.
     seeMore: { label: "See more on Behance", url: "https://www.behance.net/asawarisakhark" },
+  },
+
+  // ---- Medium Articles ---------------------------------------------------
+  articles: {
+    heading: "Latest from Medium",
+    subheading: "Keep up with reading from my Medium",
+    feedUrl: "https://medium.com/feed/@asawarisakharkar2000",
+    items: [
+      {
+        title: "Our Different Senses",
+        // excerpt: "When we understand an object through a different lens.",
+        url: "https://medium.com/@asawarisakharkar2000",
+        image: "assets/images/medium_imges/e257b2a72d0a35f8c6dfb072447f3f22.jpg",
+      },
+      {
+        title: "The diffrences in design POV and strategy POV",
+        // excerpt: "When your design gets rejected because it has no selling point.",
+        url: "https://medium.com/@asawarisakharkar2000",
+        image: "assets/images/medium_imges/0_aGJIN3s4E_CcSgUX.webp",
+      },
+      {
+        title: "10 Practices that helped me in my UX Summer Internship this year",
+        // excerpt: "The practices I picked up while working as a UX Design Intern at Cosmino.",
+        url: "https://medium.com/@asawarisakharkar2000",
+        image: "assets/images/medium_imges/c893f0c327a7ac9697d56e08f8285203.jpg",
+      },
+    ],
   },
 
   // ---- My Experience (timeline) ------------------------------------------
@@ -83,34 +111,32 @@ window.SITE_CONTENT = {
       {
         role: "UX Design Consultant",
         org: "Saarogya",
-        current: true,
+        duration: "Feb 2026 - July 2026",
+        // current: true,
         description:
           "At Saarogya, I support design and product decisions by aligning them with the organization's vision. I contribute to the UX and Human-Centered Design (HCD) of Nitya Karma and 16 Points, while also leading the redesign of the company website to enhance user experience and engagement.",
       },
       {
-        role: "UX Designer / Researcher",
-        org: "cosmino",
-        current: true,
+        role: "UX Designer/Researcher",
+        org: "Cosmino",
+        duration: "April 2026 - June 2026",
+        // current: true,
         description:
           "Contributed to early-stage product development through user research, competitive analysis, user testing, go-to-market planning, marketing and outreach strategy, and brand development.",
       },
       {
         role: "UI / UX Designer",
         org: "Diginovators",
+        duration: "Mar 2024 - June 2024",
         description:
           "I collaborated with the project manager and senior designers to create web pages for a client. I participated in multiple stages of the design thinking process, from initial ideas to the final prototype.",
       },
       {
         role: "UI Developer",
         org: "Red Nucleus",
+        duration: "May 2022 - April 2024",
         description:
           "I contributed to the development and improvement of e-learning modules for pharmaceutical companies. I worked with a team of developers to implement design specifications and write code.",
-      },
-      {
-        role: "Market Researcher",
-        org: "Bolstart",
-        description:
-          "Conducting market research and competitor analysis for Bolstart: a startup magazine for their in-house startup page.",
       },
     ],
   },
@@ -120,22 +146,22 @@ window.SITE_CONTENT = {
     heading: "My Education",
     items: [
       {
-        institute: "MIT Institute of Design",
+        institute: "MIT Institute of Design, Pune",
         program: "Information Design and Data Visualization",
-        period: "JULY 2024 - JULY 2027",
-        location: "PUNE, MAHARASHTRA",
+        period: "July 2024 - July 2027",
+        location: "Pune, Maharashtra",
       },
       {
-        institute: "Edit Institute",
+        institute: "Edit Institute, Pune",
         program: "Diploma in UI/UX Designing",
-        period: "JULY 2023 - DEC 2023",
-        location: "PUNE, MAHARASHTRA",
+        period: "July 2023 - Dec 2023",
+        location: "Pune, Maharashtra",
       },
       {
         institute: "Vishwakarma Institute of Technology, Pune",
         program: "BTech Electronics Engineering",
-        period: "AUG 2018 - AUG 2022",
-        location: "PUNE, MAHARASHTRA",
+        period: "Aug 2018 - Aug 2022",
+        location: "Pune, Maharashtra",
       },
     ],
   },
@@ -151,7 +177,6 @@ window.SITE_CONTENT = {
       { image: "assets/images/outfits/PXL_20250702_120640103~2.jpg", alt: "Outfit check" },
       { image: "assets/images/outfits/PXL_20250704_091924545.jpg", alt: "Outfit check" },
       { image: "assets/images/outfits/PXL_20250706_072907889.jpg", alt: "Outfit check" },
-      { image: "assets/images/outfits/PXL_20250818_110128684.jpg", alt: "Outfit check" },
       { image: "assets/images/outfits/PXL_20250914_093009357.jpg", alt: "Outfit check" },
       { image: "assets/images/outfits/PXL_20250914_093252510.jpg", alt: "Outfit check" },
       { image: "assets/images/outfits/PXL_20251121_060315568.jpg", alt: "Outfit check" },

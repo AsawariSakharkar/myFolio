@@ -214,7 +214,7 @@ a {
 
 .hero__tagline {
   margin: 0;
-  max-width: 40ch;
+  max-width: 55ch;
   font-size: clamp(1.15rem, 2.4vw, 2rem);
   color: var(--ink);
   font-weight: 400;
@@ -264,7 +264,7 @@ a {
   border-radius: var(--radius-card);
   background: var(--white);
   color: var(--ink);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.2;
@@ -283,10 +283,12 @@ a {
   color: var(--white);
   border: 1px solid var(--white);
   box-shadow: none;
+  cursor: pointer;
 }
 
-.tag--accent:hover {
-  background: rgba(255, 255, 255, 0.1);
+.tag--accent:hover,
+.tag--accent:focus {
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: none;
 }
 
@@ -295,6 +297,86 @@ a {
    ========================================================================== */
 .projects {
   padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.articles {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.article-card {
+  display: block;
+  min-height: 220px;
+  padding: 1.25rem;
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  color: var(--white);
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  overflow: hidden;
+}
+
+.article-card:hover,
+.article-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+.article-card__image {
+  display: block;
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: calc(var(--radius-card) - 0.5rem);
+  margin-bottom: 1rem;
+}
+
+.article-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-card__title {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.2;
+  flex: 1;
+}
+
+.article-card__excerpt {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.article-card__arrow {
+  margin-top: 0.35rem;
+}
+
+.article-card__title {
+  margin: 0 0 0.85rem;
+  color: var(--white);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.2;
+}
+
+.article-card__excerpt {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .project-grid {
@@ -319,9 +401,41 @@ a {
   object-fit: cover;
 }
 
+.project-card__overlay {
+  position: absolute;
+  inset: 50% 0 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1.25rem;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.project-card__title {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.project-card:hover .project-card__overlay,
+.project-card:focus-within .project-card__overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
 }
 
 /* "See more on Behance" outlined card */
@@ -365,9 +479,41 @@ a {
   height: 20px;
 }
 
+.article-card .arrow {
+  flex: none;
+  width: 43px;
+  height: 43px;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  transition: transform 0.25s var(--ease);
+}
+
+.article-card:hover .arrow {
+  transform: translateX(4px);
+}
+
+.article-card .arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ==========================================================================
    TIMELINE (Experience + Education)
    ========================================================================== */
+.section-break {
+  width: 100%;
+  height: 4px;
+  margin: 0;
+}
+
+.section-break--red {
+  background: var(--maroon);
+}
+
 .timeline-section {
   padding-block: clamp(2rem, 5vw, 3.5rem);
 }
@@ -427,6 +573,19 @@ a {
 
 .timeline__role .at {
   color: var(--maroon);
+}
+
+.timeline__duration {
+  margin: 0.2rem 0 0;
+  color: var(--ink-body);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.timeline__role .timeline__duration {
+  color: var(--ink-body);
+  font-size: 0.85em;
+  font-weight: 400;
 }
 
 .timeline__desc {

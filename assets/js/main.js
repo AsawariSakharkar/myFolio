@@ -85,7 +85,15 @@
     var hero = C.hero || {};
     setText("hero-greeting", hero.greeting);
     setText("hero-name", hero.name);
-    setText("hero-tagline", hero.tagline);
+    var tagline = hero.tagline || "";
+    var taglineEl = $("hero-tagline");
+    if (taglineEl) {
+      var html = tagline
+        .split(/,\s*/)
+        .map(escapeHtml)
+        .join(",<br>");
+      taglineEl.innerHTML = html.replace(/\s+and\s+([^,]+)$/, " and<br>$1");
+    }
     var img = $("hero-image");
     if (img) {
       img.src = encodePath(hero.image);
@@ -103,6 +111,20 @@
     (e.tags || []).forEach(function (t) {
       var li = el("li", "tag" + (t.accent ? " tag--accent" : ""));
       li.textContent = t.label;
+      if (t.label === "And an Outfit Planner" || t.accent) {
+        li.tabIndex = 0;
+        li.setAttribute("role", "button");
+        li.addEventListener("click", function () {
+          var target = $("fashion");
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        li.addEventListener("keypress", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            li.click();
+          }
+        });
+      }
       list.appendChild(li);
     });
   }
@@ -130,6 +152,15 @@
       img.alt = item.title || "Project";
       img.loading = "lazy";
       card.appendChild(img);
+
+      if (item.title) {
+        var overlay = el("div", "project-card__overlay");
+        var title = el("span", "project-card__title");
+        title.textContent = item.title;
+        overlay.appendChild(title);
+        card.appendChild(overlay);
+      }
+
       grid.appendChild(card);
     });
 
@@ -150,7 +181,148 @@
     }
   }
 
-  // ---- Experience -------------------------------------------------------
+  // ---- Medium Articles ---------------------------------------------------
+  function renderArticles() {
+    var a = C.articles || {};
+    setText("articles-heading", a.heading || "Latest from Medium");
+    setText("articles-sub", a.subheading || "");
+    var list = $("articles-list");
+    if (!list) return;
+    list.innerHTML = "";
+
+    (a.items || []).forEach(function (item) {
+      var card = el(item.url ? "a" : "div", "article-card");
+      if (item.url) {
+        card.href = item.url;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+      }
+      if (item.image) {
+        var img = el("img", "article-card__image");
+        img.src = encodePath(item.image);
+        img.alt = item.title || "Medium article image";
+        img.loading = "lazy";
+        card.appendChild(img);
+      }
+      var header = el("div", "article-card__header");
+      var title = el("h3", "article-card__title");
+      title.textContent = item.title || "Medium Article";
+      header.appendChild(title);
+      if (item.url) {
+        var arrow = el("span", "arrow article-card__arrow");
+        arrow.innerHTML = ARROW_RIGHT;
+        header.appendChild(arrow);
+      }
+      card.appendChild(header);
+      if (item.excerpt) {
+        var excerpt = el("p", "article-card__excerpt");
+        excerpt.textContent = item.excerpt;
+        card.appendChild(excerpt);
+      }
+      list.appendChild(card);
+    });
+  }
+
+  function decodeHtml(html) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html || "", "text/html");
+    return doc.body.textContent || "";
+  }
+
+  function normalizeExcerpt(html) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html || "", "text/html");
+    var paragraph = doc.querySelector("p");
+    if (paragraph && paragraph.textContent.trim()) {
+      return paragraph.textContent.trim();
+    }
+    return doc.body.textContent.trim();
+  }
+
+  function fetchMediumFeed() {
+    var a = C.articles || {};
+    var feedUrl = a.feedUrl;
+    if (!feedUrl || !window.fetch) return Promise.resolve();
+
+    var proxies = [
+      "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl),
+      "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl),
+      feedUrl,
+    ];
+
+    function tryFetch(url) {
+      return fetch(url, { mode: "cors", cache: "no-cache" })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Fetch failed: " + response.status);
+          return response.text().then(function (text) {
+            if (url.indexOf("/get?") !== -1) {
+              try {
+                var json = JSON.parse(text);
+                return json.contents || "";
+              } catch (e) {
+                throw new Error("Invalid JSON proxy response");
+              }
+            }
+            return text;
+          });
+        })
+        .then(function (text) {
+          if (!text || text.indexOf("<rss") === -1) {
+            throw new Error("Not RSS content");
+          }
+          return text;
+        });
+    }
+
+    function parseFeed(xmlText) {
+      var parser = new DOMParser();
+      var xml = parser.parseFromString(xmlText, "application/xml");
+      if (xml.querySelector("parsererror")) {
+        throw new Error("Feed parse error");
+      }
+      var items = Array.prototype.slice.call(xml.querySelectorAll("item")).slice(0, 3);
+      if (!items.length) throw new Error("No feed items found");
+      return items.map(function (item) {
+        var title = item.querySelector("title") ? decodeHtml(item.querySelector("title").textContent) : "Medium Article";
+        var link = item.querySelector("link") ? decodeHtml(item.querySelector("link").textContent) : "";
+        var excerpt = "";
+        var desc = item.querySelector("description");
+        if (desc) {
+          excerpt = normalizeExcerpt(desc.textContent || desc.innerHTML);
+        }
+        if (!excerpt) {
+          var content = item.querySelector("content\\:encoded");
+          if (content) excerpt = normalizeExcerpt(content.textContent || content.innerHTML);
+        }
+        if (excerpt.length > 180) {
+          excerpt = excerpt.slice(0, 180).trim() + "…";
+        }
+        return {
+          title: title,
+          url: link,
+          excerpt: excerpt,
+        };
+      });
+    }
+
+    var attempt = proxies.reduce(function (promise, url) {
+      return promise.catch(function () {
+        return tryFetch(url);
+      });
+    }, Promise.reject());
+
+    return attempt
+      .then(function (xmlText) {
+        var items = parseFeed(xmlText);
+        if (items.length) {
+          C.articles.items = items;
+          renderArticles();
+        }
+      })
+      .catch(function () {
+        // Leave fallback content if live feed cannot be retrieved.
+      });
+  }
   function renderExperience() {
     var ex = C.experience || {};
     setText("experience-heading", ex.heading || "My Experience");
@@ -166,6 +338,11 @@
         (item.org ? ' <span class="at">@' + escapeHtml(item.org) + "</span>" : "");
       li.appendChild(dot);
       li.appendChild(role);
+      if (item.duration) {
+        var duration = el("p", "timeline__duration");
+        duration.textContent = escapeHtml(item.duration);
+        li.appendChild(duration);
+      }
       if (item.description) {
         var desc = el("p", "timeline__desc");
         desc.textContent = item.description;
@@ -227,6 +404,17 @@
     return fig;
   }
 
+  function shuffleArray(array) {
+    var shuffled = array.slice();
+    for (var i = shuffled.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+    return shuffled;
+  }
+
   function renderFashion() {
     var f = C.fashion || {};
     setText("fashion-heading", f.heading);
@@ -234,7 +422,7 @@
     var scroller = $("outfit-scroller");
     if (!scroller) return;
 
-    var photos = f.photos || [];
+    var photos = shuffleArray(f.photos || []);
     scroller.innerHTML = "";
 
     var track = el("div", "outfit-track");
@@ -429,6 +617,8 @@
     renderHero();
     renderExpertise();
     renderProjects();
+    renderArticles();
+    fetchMediumFeed();
     renderExperience();
     renderEducation();
     renderFashion();
