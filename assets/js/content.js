@@ -80,7 +80,6 @@ window.SITE_CONTENT = {
   articles: {
     heading: "Latest from Medium",
     subheading: "Keep up with reading from my Medium",
-    feedUrl: "https://medium.com/feed/@asawarisakharkar2000",
     items: [
       {
         title: "Our Different Senses",
