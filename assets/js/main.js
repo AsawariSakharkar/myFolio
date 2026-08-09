@@ -244,7 +244,21 @@
     var feedUrl = a.feedUrl;
     if (!feedUrl || !window.fetch) return Promise.resolve();
 
+    // Avoid attempting cross-origin RSS fetches from GitHub Pages or other
+    // static-hosted origins that will be blocked by CORS. Only try live fetch
+    // when running on localhost or a non-github origin.
+    try {
+      var host = window.location.hostname || "";
+      if (host.indexOf("github.io") !== -1 || host === "") {
+        return Promise.resolve();
+      }
+    } catch (e) {
+      return Promise.resolve();
+    }
+
     var proxies = [
+      // prefer CORS proxy endpoints first; these may still fail depending on
+      // availability, so fall back silently to the static items in content.js
       "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl),
       "https://api.allorigins.win/get?url=" + encodeURIComponent(feedUrl),
       feedUrl,
