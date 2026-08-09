@@ -819,7 +819,8 @@ a {
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 900px) {
-  .project-grid {
+  .project-grid,
+  .article-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -843,7 +844,8 @@ a {
 }
 
 @media (max-width: 560px) {
-  .project-grid {
+  .project-grid,
+  .article-grid {
     grid-template-columns: 1fr;
   }
   .socials {
