@@ -69,7 +69,7 @@ window.SITE_CONTENT = {
       { image: "assets/images/projects/Rectangle 9.png", title: "Arohi: Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
       { image: "assets/images/projects/Rectangle 10.png", title: "Śruti: Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
       { image: "assets/images/projects/Rectangle 11.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
-      { image: "assets/images/projects/Rectangle 12.png", title: "Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
+      { image: "assets/images/projects/Rectangle 12.png", title: "Sagarm: Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
       { image: "assets/images/projects/Rectangle 13.png", title: "Daily UI 004", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
     ],
     // The final outlined "See more" card in the design.
