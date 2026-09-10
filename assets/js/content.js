@@ -15,7 +15,7 @@ window.SITE_CONTENT = {
   meta: {
     title: "Asawari Sakharkar — Information Designer & UX Researcher",
     description:
-      "Portfolio of Asawari Sakharkar — Information Designer, UX Researcher, problem solver and fashion lover.",
+      "Portfolio of Asawari Sakharkar — Information Designer, UX Researcher, and problem solver.",
     favicon: "assets/favicononinini.jpeg",
   },
 
@@ -37,7 +37,7 @@ window.SITE_CONTENT = {
     greeting: "Hello~",
     name: "I am Asawari Sakharkar",
     tagline:
-      "An Information Designer, UX Researcher, A Problem Solver and, A Fashion Lover",
+      "An Information Designer, UX Researcher, A Problem Solver.",
     // Tip: in Figma, select the whole locket group ("Group 32") and export it
     // as ONE transparent PNG for the cleanest result, then point to it here.
     image: "assets/images/Group 32.png",
@@ -57,7 +57,7 @@ window.SITE_CONTENT = {
       { label: "Psychology" },
       { label: "Accessibility" },
       { label: "UX Design" },
-      { label: "And an Outfit Planner", accent: true },
+     // { label: "And an Outfit Planner", accent: true },
     ],
   },
 
@@ -70,7 +70,10 @@ window.SITE_CONTENT = {
       { image: "assets/images/projects/Rectangle 10.png", title: "Śruti: Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
       { image: "assets/images/projects/Rectangle 11.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
       { image: "assets/images/projects/Rectangle 12.png", title: "Sagarm: Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
+      { image: "assets/images/projects/Mae_tile.png", title: "Mae: Virtual mom who takes care of your wellbeing", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
+      { image: "assets/images/projects/Perfume_CS_Tile.png", title: "What fragrances do college students prefer?", url: "https://www.behance.net/gallery/252967607/What-fragrances-do-college-students-prefer" },
       { image: "assets/images/projects/Rectangle 13.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
+      //{ image: "assets/images/projects/Rectangle 13.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
     ],
     // The final outlined "See more" card in the design.
     seeMore: { label: "See more on Behance", url: "https://www.behance.net/asawarisakhark" },
