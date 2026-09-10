@@ -64,16 +64,30 @@ window.SITE_CONTENT = {
   // ---- My Projects --------------------------------------------------------
   projects: {
     heading: "My Projects",
-    // Each card: image + optional link. Add/remove freely.
-    items: [
-      { image: "assets/images/projects/Rectangle 9.png", title: "Arohi: Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
-      { image: "assets/images/projects/Rectangle 10.png", title: "Śruti: Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
-      { image: "assets/images/projects/Rectangle 11.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
-      { image: "assets/images/projects/Rectangle 12.png", title: "Sagarm: Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
-      { image: "assets/images/projects/Mae_tile.png", title: "Mae: Virtual mom who takes care of your wellbeing", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
-      { image: "assets/images/projects/Perfume_CS_Tile.png", title: "What fragrances do college students prefer?", url: "https://www.behance.net/gallery/252967607/What-fragrances-do-college-students-prefer" },
-      { image: "assets/images/projects/Rectangle 13.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
-      //{ image: "assets/images/projects/Rectangle 13.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
+    // Each category has a subtitle and a live case-study count.
+    categories: [
+      {
+        title: "UX Case Studies",
+        items: [
+          { image: "assets/images/projects/Rectangle 9.png", title: "Arohi: Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
+          { image: "assets/images/projects/Rectangle 11.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
+          { image: "assets/images/projects/Mae_tile.png", title: "Mae: Virtual mom who takes care of your wellbeing", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
+        ],
+      },
+      {
+        title: "UI Case Studies",
+        items: [
+          { image: "assets/images/projects/Rectangle 13.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
+          { image: "assets/images/projects/Rectangle 10.png", title: "Śruti: Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
+        ],
+      },
+      {
+        title: "Data Visualization",
+        items: [
+          { image: "assets/images/projects/Rectangle 12.png", title: "Sagarm: Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
+          { image: "assets/images/projects/Perfume_CS_Tile.png", title: "What fragrances do college students prefer?", url: "https://www.behance.net/gallery/252967607/What-fragrances-do-college-students-prefer" },
+        ],
+      },
     ],
     // The final outlined "See more" card in the design.
     seeMore: { label: "See more on Behance", url: "https://www.behance.net/asawarisakhark" },

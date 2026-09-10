@@ -137,7 +137,7 @@
     if (!grid) return;
     grid.innerHTML = "";
 
-    (p.items || []).forEach(function (item) {
+    function appendProjectCard(item) {
       var card;
       if (item.url) {
         card = el("a", "project-card");
@@ -162,10 +162,30 @@
       }
 
       grid.appendChild(card);
+    }
+
+    var categories = p.categories || [];
+    categories.forEach(function (category) {
+      var categoryHeading = el("div", "project-category");
+      var categoryTitle = el("h3", "project-category__title");
+      categoryTitle.textContent = category.title || "Case Studies";
+      var count = el("span", "project-category__count");
+      var itemCount = (category.items || []).length;
+      count.textContent = itemCount + " case stud" + (itemCount === 1 ? "y" : "ies");
+      categoryHeading.appendChild(categoryTitle);
+      categoryHeading.appendChild(count);
+      grid.appendChild(categoryHeading);
+
+      (category.items || []).forEach(appendProjectCard);
     });
 
+    // Keep supporting the original flat data shape for future content edits.
+    if (!categories.length) {
+      (p.items || []).forEach(appendProjectCard);
+    }
+
     if (p.seeMore && p.seeMore.label) {
-      var more = el("a", "project-card project-card--more");
+      var more = el("a", "project-more-button");
       more.href = p.seeMore.url || "#";
       if (p.seeMore.url) {
         more.target = "_blank";
