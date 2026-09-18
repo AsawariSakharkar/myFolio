@@ -69,23 +69,24 @@ window.SITE_CONTENT = {
       {
         title: "UX Case Studies",
         items: [
-          { image: "assets/images/projects/Rectangle 9.png", title: "Arohi: Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
-          { image: "assets/images/projects/Rectangle 11.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
-          { image: "assets/images/projects/Mae_tile.png", title: "Mae: Virtual mom who takes care of your wellbeing", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
+          { image: "assets/images/projects/Arohi_tileImage.png", title: "Arohi: Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
+          { image: "assets/images/projects/suchalck_tileImage.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
+          { image: "assets/images/projects/mae_tileImage.png", title: "Mae: Virtual mom who takes care of your wellbeing", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
+          { image: "assets/images/projects/dandelion_tileImage.png", title: "Dandelion: To Break Your Overthinking", url: "https://www.behance.net/gallery/255660865/Dandelion-to-break-your-overthinking" },
         ],
       },
       {
         title: "UI Case Studies",
         items: [
-          { image: "assets/images/projects/Rectangle 13.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
-          { image: "assets/images/projects/Rectangle 10.png", title: "Śruti: Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
+          { image: "assets/images/projects/UniversalCalculator_tileImage.png", title: "Universal Calculator", url: "https://www.behance.net/gallery/224749961/Daily-UI-004" },
+          { image: "assets/images/projects/sruti_tileImage.png", title: "Śruti: Corporate Learning Platform", url: "https://www.behance.net/gallery/246535769/Corporate-Learning-Platform" },
         ],
       },
       {
         title: "Data Visualization",
         items: [
-          { image: "assets/images/projects/Rectangle 12.png", title: "Sagarm: Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
-          { image: "assets/images/projects/Perfume_CS_Tile.png", title: "What fragrances do college students prefer?", url: "https://www.behance.net/gallery/252967607/What-fragrances-do-college-students-prefer" },
+          { image: "assets/images/projects/sagaram_tileImage.png", title: "Sagarm: Effect of Ocean Acidification", url: "https://www.behance.net/gallery/246071569/Effect-of-Ocean-Acidification" },
+          { image: "assets/images/projects/perfume_tileImage.png", title: "What fragrances do college students prefer?", url: "https://www.behance.net/gallery/252967607/What-fragrances-do-college-students-prefer" },
         ],
       },
     ],
