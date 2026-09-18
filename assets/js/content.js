@@ -71,7 +71,7 @@ window.SITE_CONTENT = {
         items: [
           { image: "assets/images/projects/Arohi_tileImage.png", title: "Arohi: Disaster Management Interface", url: "https://www.behance.net/gallery/245227537/AROHI-Disaster-Management-Interface" },
           { image: "assets/images/projects/suchalck_tileImage.png", title: "Suchalak: Better Navigation", url: "https://www.behance.net/gallery/245164655/Suchalak" },
-          { image: "assets/images/projects/mae_tileImage.png", title: "Mae: Virtual mom who takes care of your wellbeing", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
+          { image: "assets/images/projects/mae_tileImage.png", title: "Mae: Virtual Mom", url: "https://www.behance.net/gallery/254510655/Mae-Virtual-mom-who-takes-care-of-your-welbeing" },
           { image: "assets/images/projects/dandelion_tileImage.png", title: "Dandelion: To Break Your Overthinking", url: "https://www.behance.net/gallery/255660865/Dandelion-to-break-your-overthinking" },
         ],
       },
